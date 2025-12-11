@@ -1,2 +1,1160 @@
-# fut-play.github.io
-Seu endereço para informação de futebol na internet.
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeonato Brasileiro 1988 - Bola na Área</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:root {
+  --primary-color: #1a365d;
+  --secondary-color: #d32f2f;
+  --accent-color: #fbbf24;
+  --bg-light: #f8f9fa;
+  --text-dark: #2d3748;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+        body {
+          font-family: 'Roboto', sans-serif;
+          background-color: #f5f5f5;
+          color: var(--text-dark);
+          line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 700;
+        }
+
+        .header-gradient {
+          background: linear-gradient(135deg, var(--primary-color) 0%, #2d4a8a 100%);
+        }
+
+        .card-hover:hover {
+          transform: translateY(-5px);
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-badge {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background-color: #e2e8f0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          color: var(--primary-color);
+        }
+
+        .champion-gold {
+          background-color: #fff8e1;
+          border-left: 4px solid var(--accent-color);
+        }
+
+        .relegated-row {
+          background-color: #fee;
+          border-left: 4px solid #f87171;
+        }
+
+        .stats-icon {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 15px;
+        }
+
+        .top-scorer-item {
+          padding: 10px 15px;
+          border-radius: 8px;
+          margin-bottom: 8px;
+          border-left: 4px solid transparent;
+        }
+
+        .top-scorer-item:nth-child(odd) {
+          background-color: #f8f9fa;
+        }
+
+        .top-scorer-item:nth-child(even) {
+          background-color: #f1f5f9;
+        }
+
+        @media (max-width: 768px) {
+          .responsive-table {
+            font-size: 0.85rem;
+          }
+
+          .hide-on-mobile {
+            display: none;
+          }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header-gradient text-white shadow-lg">
+      <div class="container mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-6 md:mb-0">
+            <!-- Imagem separada -->
+            <a href="https://www.bolanaarea.com/brasileirao_1988.htm" target="_blank" class="mr-4">
+              <img style="width: 80px;" src="./futplay.png" alt="Bola de futebol">
+              <!--<img style="width: 80px;" src="https://www.pngarts.com/files/2/Soccer-Ball-PNG-Photo.png" alt="Bola de futebol">-->
+            </a>
+
+            <!-- Título e descrição -->
+            <div>
+              <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                FutPlay
+              </h1>
+            </div>
+          </div>
+
+          <div class="flex items-center mb-6 md:mb-0 text-center">
+            <div>
+              <p class="text-lg">
+                <span class="text-3xl md:text-3xl font-bold mb-2 text-white">CAMPEONATO BRASILEIRO 1988</span><br>
+                <span class="opacity-90">Reviva a emocionante edição do Brasileirão que consagrou o Bahia como campeão</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center">
+            <div class="stats shadow bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+              <div class="stat place-items-center text-white">
+                <div class="stat-title text-white">Edição Histórica</div>
+                <div class="stat-value text-3xl">1988</div>
+                <div class="stat-desc text-gray-100">Sistema de fase de grupos e eliminatórias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container mx-auto px-4 py-8">
+      <!-- Seção do Campeão -->
+      <section class="mb-12">
+        <div class="card shadow-xl champion-gold">
+          <div class="card-body">
+            <div class="flex flex-col lg:flex-row items-center">
+
+              <div class="lg:w-1/3 text-center mb-6 lg:mb-0">
+                <div class="flex flex-col items-center">
+                  <div class="mb-4">
+                    <div class="badge badge-warning text-lg font-bold p-4 mb-2">CAMPEÃO</div>
+                    <h2 class="text-3xl font-bold">ESPORTE CLUBE BAHIA</h2>
+                  </div>
+
+                  <!-- Container para escudo e mascote lado a lado -->
+                  <div class="flex items-center justify-center mb-4 gap-6">
+                    <!-- Escudo -->
+                    <div class="relative">
+                      <div class="w-32 h-32 rounded-full bg-blue-100 flex items-center justify-center border-4 border-yellow-400 shadow-lg">
+                        <img src="https://upload.wikimedia.org/wikipedia/pt/archive/9/90/20251115020709%21ECBahia.png" 
+                             alt="Escudo do Bahia" 
+                             class="w-24 h-24 object-contain">
+                      </div>
+                      <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                        <i class="fas fa-trophy text-2xl text-yellow-500"></i>
+                      </div>
+                    </div>
+
+                    <!-- Mascote -->
+                    <div class="flex flex-col items-center">
+                      <div class="w-28 h-28 bg-gradient-to-br from-red-100 to-blue-100 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
+                        <img src="https://whatthelogo.com/storage/logos/mascote-esporte-clube-bahia-236299.png" 
+                             alt="Mascote do Bahia" 
+                             class="w-20 h-20 object-contain">
+                      </div>
+                      <p class="mt-2 text-sm font-semibold text-gray-700">Super Homem</p>
+                    </div>
+                  </div>
+
+                  <!-- Informações -->
+                  <div class="text-center space-y-2">
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Salvador (BA)</p>
+                    <p><i class="fas fa-futbol mr-2"></i> Estádio: Fonte Nova (95.000 lugares)</p>
+                    <p><i class="fas fa-globe mr-2"></i> Site: www.esporteclubebahia.com.br</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lg:w-2/3 lg:pl-8">
+                <h3 class="text-2xl font-bold mb-4">O Time Campeão</h3>
+                <div class="mb-6">
+                  <div class="flex items-center mb-4">
+                    <div class="mr-4">
+                      <div class="text-5xl font-bold text-yellow-600">52</div>
+                      <div class="text-sm">Pontos</div>
+                    </div>
+                    <div class="stats shadow flex-1">
+                      <div class="stat">
+                        <div class="stat-title">Triunfos</div>
+                        <div class="stat-value text-primary">13</div>
+                      </div>
+                      <div class="stat">
+                        <div class="stat-title">Gols Pró</div>
+                        <div class="stat-value text-primary">33</div>
+                      </div>
+                      <div class="stat">
+                        <div class="stat-title">Saldo</div>
+                        <div class="stat-value text-primary">+10</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-6">
+                  <h4 class="text-xl font-bold mb-2">Curiosidade: Nem a Macumba Pára o Bahia</h4>
+                  <div class="bg-base-200 p-4 rounded-lg">
+                    <p class="italic">"O Bahia não teve de lutar apenas contra a desconfiança da imprensa brasileira e contra o forte time do Inter. Precisou superar até mesmo o sobrenatural. Ao entrar no Beira Rio, os jogadores tricolores viram, na porta do vestiário, uma gigantesca macumba. O 'trabalho' visava equilibrar a guerrilha espiritual, já que muitos colorados atribuíam o triunfo do Bahia por 2x1, de virada, no primeiro jogo das finais às artes dos babalorixás de Salvador. A equipe baiana, porém, não se impressionou com o despacho. 'Fazer trabalho contra baiano é perda de tempo', disse o técnico Evaristo de Macedo."</p>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="text-xl font-bold mb-2">Os Campeões</h4>
+                  <img src="https://www.bolanaarea.com/poster_1988_bahia-ba.jpg" alt="">
+                  <p><strong>Em pé:</strong> João Marcelo, Ronaldo, Paulo Rodrigues, Tarantini, Paulo Róbson e Claudir</p>
+                  <p><strong>Agachados:</strong> Marquinhos, Bobô, Charles, Zé Carlos e Gil</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Estatísticas do Torneio -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center">Números do Torneio</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div class="card bg-base-100 shadow-lg card-hover">
+            <div class="card-body text-center">
+              <div class="stats-icon bg-blue-100 text-blue-600">
+                <i class="fas fa-users text-3xl"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl font-bold">24</h3>
+              <p class="text-gray-600">Participantes</p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-lg card-hover">
+            <div class="card-body text-center">
+              <div class="stats-icon bg-green-100 text-green-600">
+                <i class="fas fa-futbol text-3xl"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl font-bold">290</h3>
+              <p class="text-gray-600">Jogos</p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-lg card-hover">
+            <div class="card-body text-center">
+              <div class="stats-icon bg-red-100 text-red-600">
+                <i class="fas fa-futbol text-3xl"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl font-bold">545</h3>
+              <p class="text-gray-600">Gols</p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-lg card-hover">
+            <div class="card-body text-center">
+              <div class="stats-icon bg-yellow-100 text-yellow-600">
+                <i class="fas fa-calculator text-3xl"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl font-bold">1,88</h3>
+              <p class="text-gray-600">Média de Gols</p>
+            </div>
+          </div>
+
+          <div class="card bg-base-100 shadow-lg card-hover">
+            <div class="card-body text-center">
+              <div class="stats-icon bg-purple-100 text-purple-600">
+                <i class="fas fa-chart-line text-3xl"></i>
+              </div>
+              <h3 class="card-title justify-center text-2xl font-bold">13.811</h3>
+              <p class="text-gray-600">Média de Público</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Melhores e Piores -->
+      <section class="mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Melhores -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl font-bold text-green-700 mb-4">
+                <i class="fas fa-trophy mr-2"></i> OS MELHORES
+              </h2>
+
+              <div class="grid grid-cols-2 gap-6">
+                <div class="bg-green-50 p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2 text-green-800">ATAQUE</h3>
+                  <div class="flex items-center">
+                    <div class="team-badge bg-green-200 text-green-800 mr-3">
+                      <img src="https://www.bolanaarea.com/cb_inter-rs.gif" alt="Internacional">
+                    </div>
+                    <div>
+                      <p class="font-bold">Internacional</p>
+                      <p class="text-2xl font-bold text-green-700">40 GOLS</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2 text-blue-800">DEFESA</h3>
+                  <div class="flex items-center">
+                    <div class="team-badge bg-blue-200 text-blue-800 mr-3">
+                      <img src="https://upload.wikimedia.org/wikipedia/pt/a/ac/CRVascodaGama.png" alt="Internacional">
+                    </div>
+                    <div>
+                      <p class="font-bold">Vasco</p>
+                      <p class="text-2xl font-bold text-blue-700">16 GOLS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Piores -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl font-bold text-red-700 mb-4">
+                <i class="fas fa-arrow-down mr-2"></i> OS PIORES
+              </h2>
+
+              <div class="grid grid-cols-2 gap-6">
+                <div class="bg-red-50 p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2 text-red-800">ATAQUE</h3>
+                  <div class="flex items-center">
+                    <div class="team-badge bg-red-200 text-red-800 mr-3">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/America_FC.svg/2048px-America_FC.svg.png" alt="Internacional">
+                    </div>
+                    <div>
+                      <p class="font-bold">América-RJ</p>
+                      <p class="text-2xl font-bold text-red-700">11 GOLS</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-orange-50 p-4 rounded-lg">
+                  <h3 class="font-bold text-lg mb-2 text-orange-800">DEFESA</h3>
+                  <div class="flex items-center">
+                    <div class="team-badge bg-orange-200 text-orange-800 mr-3">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/EscudoCriciumaEC.svg/2560px-EscudoCriciumaEC.svg.png" alt="Internacional">
+                    </div>
+                    <div>
+                      <p class="font-bold">Criciúma</p>
+                      <p class="text-2xl font-bold text-orange-700">34 GOLS</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Maior Goleada -->
+      <section class="mb-12">
+        <div class="card bg-base-100 shadow-lg w-full max-w-2xl mx-auto">
+          <div class="card-body">
+            <h2 class="card-title text-2xl font-bold mb-4 text-center">MAIOR GOLEADA</h2>
+            <div class="flex flex-col items-center">
+              <div class="mb-4">
+                <div class="badge badge-outline p-3">13.11.1988</div>
+              </div>
+
+              <div class="flex items-center justify-between w-full mb-4">
+                <!-- Time 1: Goiás -->
+                <div class="text-center w-2/5">
+                  <div class="flex flex-col items-center">
+                    <!-- Imagem acima do nome -->
+                    <div class="mb-2">
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Goi%C3%A1sLogo21.png" 
+                           class="w-16 h-16 md:w-20 md:h-20 object-contain" 
+                           alt="Escudo do Goiás">
+                    </div>
+                    <div class="text-2xl font-bold">Goiás</div>
+                  </div>
+                  <div class="text-5xl font-bold text-primary mt-4">6</div>
+                </div>
+
+                <!-- Separador -->
+                <div class="text-center w-1/5">
+                  <div class="text-4xl font-bold text-gray-700">X</div>
+                </div>
+
+                <!-- Time 2: Vicetória -->
+                <div class="text-center w-2/5">
+                  <div class="flex flex-col items-center">
+                    <!-- Imagem acima do nome -->
+                    <div class="mb-2">
+                      <img src="https://images.uncyc.org/pt/thumb/f/f5/Escudo_do_Vit%C3%B3ria_2024.png/150px-Escudo_do_Vit%C3%B3ria_2024.png" 
+                           class="w-16 h-16 md:w-20 md:h-20 object-contain" 
+                           alt="Vicetória Fatal Model" title="Vicetória Fatal Model">
+                    </div>
+                    <div class="text-2xl font-bold">
+                      <a href="https://desciclopedia.org/wiki/Esporte_Clube_Vit%C3%B3ria" target="_blank">
+                        Vicetória
+                      </a>
+                    </div>
+                  </div>
+                  <div class="text-5xl font-bold text-secondary mt-4">1</div>
+                </div>
+              </div>
+
+              <div class="text-center mt-4">
+                <p><i class="fas fa-map-marker-alt mr-2"></i> <strong>Estádio:</strong> Serra Dourada (Goiânia-GO)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabela de Classificação -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center">CLASSIFICAÇÃO FINAL</h2>
+
+        <!-- Legenda -->
+        <div class="bg-base-200 p-4 rounded-lg mb-6">
+          <h3 class="font-bold text-lg mb-2">LEGENDA</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 text-sm">
+            <p><strong>PG:</strong> Pontos Ganhos</p>
+            <p><strong>J:</strong> Jogos realizados</p>
+            <p><strong>V:</strong> Triunfo nos 90 minutos (3 pontos)</p>
+            <p><strong>VP:</strong> Triunfo nos pênaltis (3 pontos)</p>
+            <p><strong>E:</strong> Empate na fase final</p>
+            <p><strong>D:</strong> Derrota nos 90 minutos (0 pontos)</p>
+            <p><strong>DP:</strong> Derrota nos pênaltis (1 ponto)</p>
+            <p><strong>GP:</strong> Gols Pró</p>
+            <p><strong>GC:</strong> Gols Contra</p>
+            <p><strong>SG:</strong> Saldo de Gols</p>
+          </div>
+        </div>
+
+        <!-- Tabela -->
+        <!-- Tabela -->
+        <div class="overflow-x-auto">
+          <table class="table table-zebra w-full responsive-table">
+            <thead>
+              <tr class="bg-primary text-white">
+                <th class="text-center">Posição</th>
+                <th>Participantes</th>
+                <th class="text-center">PG</th>
+                <th class="text-center">J</th>
+                <th class="text-center hide-on-mobile">V</th>
+                <th class="text-center hide-on-mobile">VP</th>
+                <th class="text-center hide-on-mobile">E</th>
+                <th class="text-center hide-on-mobile">D</th>
+                <th class="text-center hide-on-mobile">DP</th>
+                <th class="text-center">GP</th>
+                <th class="text-center">GC</th>
+                <th class="text-center">SG</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="champion-gold">
+                <td class="text-center font-bold">1º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">BAH</div>
+                    <span class="font-bold">Bahia (BA)</span>
+                  </div>
+                </td>
+                <td class="text-center font-bold">52</td>
+                <td class="text-center">29</td>
+                <td class="text-center hide-on-mobile">13</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center">33</td>
+                <td class="text-center">23</td>
+                <td class="text-center font-bold">+10</td>
+              </tr>
+
+              <tr>
+                <td class="text-center font-bold">2º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">INT</div>
+                    <span>Internacional (RS)</span>
+                  </div>
+                </td>
+                <td class="text-center font-bold">53</td>
+                <td class="text-center">29</td>
+                <td class="text-center hide-on-mobile">12</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">40</td>
+                <td class="text-center">26</td>
+                <td class="text-center font-bold">+14</td>
+              </tr>
+
+              <tr>
+                <td class="text-center font-bold">3º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">FLU</div>
+                    <span>Fluminense (RJ)</span>
+                  </div>
+                </td>
+                <td class="text-center font-bold">41</td>
+                <td class="text-center">27</td>
+                <td class="text-center hide-on-mobile">10</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center">27</td>
+                <td class="text-center">21</td>
+                <td class="text-center font-bold">+6</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">4º</td>
+                <td>Grêmio (RS)</td>
+                <td class="text-center">40</td>
+                <td class="text-center">27</td>
+                <td class="text-center hide-on-mobile">10</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center">27</td>
+                <td class="text-center">24</td>
+                <td class="text-center">+3</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">5º</td>
+                <td>Vasco (RJ)</td>
+                <td class="text-center">56</td>
+                <td class="text-center">25</td>
+                <td class="text-center hide-on-mobile">13</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center">36</td>
+                <td class="text-center">16</td>
+                <td class="text-center">+20</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">6º</td>
+                <td>Flamengo (RJ)</td>
+                <td class="text-center">44</td>
+                <td class="text-center">25</td>
+                <td class="text-center hide-on-mobile">11</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">32</td>
+                <td class="text-center">20</td>
+                <td class="text-center">+12</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">7º</td>
+                <td>Sport (PE)</td>
+                <td class="text-center">43</td>
+                <td class="text-center">25</td>
+                <td class="text-center hide-on-mobile">9</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center">21</td>
+                <td class="text-center">21</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">8º</td>
+                <td>Cruzeiro (MG)</td>
+                <td class="text-center">35</td>
+                <td class="text-center">25</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center">26</td>
+                <td class="text-center">23</td>
+                <td class="text-center">+3</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">9º</td>
+                <td>Portuguesa (SP)</td>
+                <td class="text-center">43</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">12</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center">28</td>
+                <td class="text-center">21</td>
+                <td class="text-center">+7</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">10º</td>
+                <td>Atlético (MG)</td>
+                <td class="text-center">40</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">22</td>
+                <td class="text-center">22</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">11º</td>
+                <td>São Paulo (SP)</td>
+                <td class="text-center">39</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">9</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">21</td>
+                <td class="text-center">18</td>
+                <td class="text-center">+3</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">12º</td>
+                <td>Coritiba (PR)</td>
+                <td class="text-center">36</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center">20</td>
+                <td class="text-center">17</td>
+                <td class="text-center">+3</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">13º</td>
+                <td>Goiás (GO)</td>
+                <td class="text-center">34</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center">21</td>
+                <td class="text-center">21</td>
+                <td class="text-center">0</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">14º</td>
+                <td>Guarani (SP)</td>
+                <td class="text-center">32</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center">20</td>
+                <td class="text-center">22</td>
+                <td class="text-center">-2</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">15º</td>
+                <td>Corinthians (SP)</td>
+                <td class="text-center">32</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">21</td>
+                <td class="text-center">22</td>
+                <td class="text-center">-1</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">16º</td>
+                <td>Palmeiras (SP)</td>
+                <td class="text-center">31</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">8</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center">21</td>
+                <td class="text-center">22</td>
+                <td class="text-center">-1</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">17º</td>
+                <td>Botafogo (RJ)</td>
+                <td class="text-center">31</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">9</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">17</td>
+                <td class="text-center">22</td>
+                <td class="text-center">-5</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">18º</td>
+                <td>Santos (SP)</td>
+                <td class="text-center">31</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">9</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">19</td>
+                <td class="text-center">25</td>
+                <td class="text-center">-6</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">19º</td>
+                <td>Atlético (PR)</td>
+                <td class="text-center">31</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center">18</td>
+                <td class="text-center">17</td>
+                <td class="text-center">+1</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">20º</td>
+                <td>Vicetória (BA)</td>
+                <td class="text-center">30</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">7</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">10</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center">21</td>
+                <td class="text-center">30</td>
+                <td class="text-center">-9</td>
+              </tr>
+
+              <!-- Times rebaixados -->
+              <tr class="relegated-row">
+                <td class="text-center">21º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">BAN</div>
+                    <span class="font-bold">Bangu (RJ)</span>
+                  </div>
+                </td>
+                <td class="text-center">28</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center hide-on-mobile">6</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">9</td>
+                <td class="text-center hide-on-mobile">4</td>
+                <td class="text-center">15</td>
+                <td class="text-center">22</td>
+                <td class="text-center font-bold">-7</td>
+              </tr>
+
+              <tr class="relegated-row">
+                <td class="text-center">22º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">STA</div>
+                    <span class="font-bold">Santa Cruz (PE)</span>
+                  </div>
+                </td>
+                <td class="text-center">27</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">11</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center">19</td>
+                <td class="text-center">28</td>
+                <td class="text-center font-bold">-9</td>
+              </tr>
+
+              <tr class="relegated-row">
+                <td class="text-center">23º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">CRI</div>
+                    <span class="font-bold">Criciúma (SC)</span>
+                  </div>
+                </td>
+                <td class="text-center">14</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">3</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">14</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center">12</td>
+                <td class="text-center">34</td>
+                <td class="text-center font-bold">-22</td>
+              </tr>
+
+              <tr class="relegated-row">
+                <td class="text-center">24º</td>
+                <td>
+                  <div class="flex items-center">
+                    <div class="team-badge mr-3">AMÉ</div>
+                    <span class="font-bold">América (RJ)</span>
+                  </div>
+                </td>
+                <td class="text-center">13</td>
+                <td class="text-center">23</td>
+                <td class="text-center hide-on-mobile">2</td>
+                <td class="text-center hide-on-mobile">1</td>
+                <td class="text-center hide-on-mobile">-</td>
+                <td class="text-center hide-on-mobile">15</td>
+                <td class="text-center hide-on-mobile">5</td>
+                <td class="text-center">11</td>
+                <td class="text-center">31</td>
+                <td class="text-center font-bold">-20</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Clubes Rebaixados -->
+        <div class="mt-8">
+          <h3 class="text-xl font-bold mb-4">CLUBES REBAIXADOS PARA A SÉRIE B</h3>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-red-100 p-4 rounded-lg text-center">
+              <div class="flex justify-center mb-2">
+                <img class="w-16 h-16 object-contain" 
+                     src="https://upload.wikimedia.org/wikipedia/commons/7/70/Bangu_escudo.png" 
+                     alt="Escudo do Bangu">
+              </div>
+              <div class="text-2xl font-bold text-red-700">BANGU</div>
+              <p class="text-sm">21º colocado</p>
+            </div>
+
+            <div class="bg-red-100 p-4 rounded-lg text-center">
+              <div class="flex justify-center mb-2">
+                <img class="w-16 h-16 object-contain" 
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Santa_Cruz_FC_%2801%29_-_PE.svg/1109px-Santa_Cruz_FC_%2801%29_-_PE.svg.png" 
+                     alt="Escudo do Santa Cruz">
+              </div>
+              <div class="text-2xl font-bold text-red-700">SANTA CRUZ</div>
+              <p class="text-sm">22º colocado</p>
+            </div>
+
+            <div class="bg-red-100 p-4 rounded-lg text-center">
+              <div class="flex justify-center mb-2">
+                <img class="w-16 h-16 object-contain" 
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/EscudoCriciumaEC.svg/2560px-EscudoCriciumaEC.svg.png" 
+                     alt="Escudo do Criciúma">
+              </div>
+              <div class="text-2xl font-bold text-red-700">CRICIÚMA</div>
+              <p class="text-sm">23º colocado</p>
+            </div>
+
+            <div class="bg-red-100 p-4 rounded-lg text-center">
+              <div class="flex justify-center mb-2">
+                <img class="w-16 h-16 object-contain" 
+                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/America_FC.svg/2048px-America_FC.svg.png" 
+                     alt="Escudo do América-RJ">
+              </div>
+              <div class="text-2xl font-bold text-red-700">AMÉRICA-RJ</div>
+              <p class="text-sm">24º colocado</p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Artilheiros -->
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center">PRINCIPAIS ARTILHEIROS</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Artilheiro principal -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <div class="flex items-center mb-4">
+                <div class="bg-yellow-100 text-yellow-800 p-3 rounded-full mr-4">
+                  <i class="fas fa-crown text-2xl"></i>
+                </div>
+                <div>
+                  <h3 class="card-title text-2xl font-bold">15 GOLS</h3>
+                  <p class="text-lg font-bold">Nílson</p>
+                  <p class="text-sm">(Internacional)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9 gols -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold mb-3">9 GOLS</h3>
+              <div class="space-y-2">
+                <div class="top-scorer-item border-l-4 border-yellow-500">
+                  <p class="font-bold">Zé Carlos</p>
+                  <p class="text-sm">(Bahia)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-yellow-500">
+                  <p class="font-bold">Bebeto</p>
+                  <p class="text-sm">(Flamengo)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8 gols -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold mb-3">8 GOLS</h3>
+              <div class="space-y-2">
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Renato</p>
+                  <p class="text-sm">(Atlético-MG)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Hamílton</p>
+                  <p class="text-sm">(Cruzeiro)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Cuca</p>
+                  <p class="text-sm">(Grêmio)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Gaúcho</p>
+                  <p class="text-sm">(Palmeiras)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Kita</p>
+                  <p class="text-sm">(Portuguesa)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-blue-500">
+                  <p class="font-bold">Bismarck</p>
+                  <p class="text-sm">(Vasco)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7 gols -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold mb-3">7 GOLS</h3>
+              <div class="space-y-2">
+                <div class="top-scorer-item border-l-4 border-green-500">
+                  <p class="font-bold">Sérgio Araújo</p>
+                  <p class="text-sm">(Flamengo)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-green-500">
+                  <p class="font-bold">Luís Fernando</p>
+                  <p class="text-sm">(Internacional)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-green-500">
+                  <p class="font-bold">Toninho</p>
+                  <p class="text-sm">(Portuguesa)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-green-500">
+                  <p class="font-bold">Edivaldo</p>
+                  <p class="text-sm">(São Paulo)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-green-500">
+                  <p class="font-bold">Vivinho</p>
+                  <p class="text-sm">(Vasco)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 gols -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold mb-3">6 GOLS</h3>
+              <div class="space-y-2">
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Bobô</p>
+                  <p class="text-sm">(Bahia)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Paulinho Criciúma</p>
+                  <p class="text-sm">(Botafogo)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Romerito</p>
+                  <p class="text-sm">(Fluminense)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Maurício</p>
+                  <p class="text-sm">(Internacional)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Robertinho</p>
+                  <p class="text-sm">(Sport)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-purple-500">
+                  <p class="font-bold">Hélio</p>
+                  <p class="text-sm">(Vicetória)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 gols -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h3 class="card-title text-xl font-bold mb-3">5 GOLS</h3>
+              <div class="space-y-2">
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">Paulo Rodrigues</p>
+                  <p class="text-sm">(Bahia)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">Márcio Fernandes</p>
+                  <p class="text-sm">(Bragantino)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">Dener</p>
+                  <p class="text-sm">(Fluminense)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">Ézio</p>
+                  <p class="text-sm">(Palmeiras)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">Antônio Carlos</p>
+                  <p class="text-sm">(São Paulo)</p>
+                </div>
+                <div class="top-scorer-item border-l-4 border-red-500">
+                  <p class="font-bold">João Batista</p>
+                  <p class="text-sm">(Vasco)</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Informações extras -->
+      <section class="mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Sistema de Disputa -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl font-bold mb-4">
+                <i class="fas fa-sitemap mr-2"></i> Sistema de Disputa
+              </h2>
+              <p><strong>Fase inicial:</strong> Os 24 clubes foram divididos em 2 grupos de 12. Os oito melhores de cada grupo classificaram-se para as oitavas de final.</p>
+              <p><strong>Fase final:</strong> Sistema mata-mata, com partidas de ida e volta. Em caso de empate no placar agregado, o desempate seria realizado pela disputa de pênaltis, sem prorrogação.</p>
+            </div>
+          </div>
+
+          <!-- Observações -->
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl font-bold mb-4">
+                <i class="fas fa-info-circle mr-2"></i> Observações
+              </h2>
+              <ul class="list-disc pl-5 space-y-2">
+                <li>O triunfo nos pênaltis (VP) valia 3 pontos; a derrota nos pênaltis (DP) valia 1 ponto</li>
+                <li>O campeonato de 1988 foi disputado em sistema de pontos corridos com características especiais de disputa por pênaltis em alguns jogos</li>
+                <li>O torneio original foi disputado entre 14 de agosto e 19 de dezembro de 1988</li>
+                <li>O Vasco conquistou 56 pontos, o maior número da competição, mas não foi campeão devido ao sistema de classificação diferenciado</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-neutral text-neutral-content py-8 mt-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-2xl font-bold mb-2">
+              <img src="./futplay.png" style="width:10%;" alt="">
+              FutPlay
+            </h2>
+            <p>Seu endereço para informação de futebol na internet.</p>
+          </div>
+
+          <div class="text-center">
+            <p class="mb-2">&copy; 2025 FutPlay</p>
+            <p>Todos os direitos reservados</p>
+          </div>
+        </div>
+
+        <div class="divider my-6"></div>
+
+        <div class="text-center">
+          <!--<p class="text-sm opacity-70">&copy; Copyright - Todos os direitos reservados</p>-->
+          <div class="mt-4">
+            <button class="btn btn-outline btn-sm mr-2">
+              <i class="fab fa-html5 mr-2"></i> HTML5
+            </button>
+            <button class="btn btn-outline btn-sm mr-2">
+              <i class="fab fa-css3-alt mr-2"></i> CSS3
+            </button>
+            <button class="btn btn-outline btn-sm">
+              <i class="fab fa-js mr-2"></i> DaisyUI
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
