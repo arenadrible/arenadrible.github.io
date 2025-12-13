@@ -1,1 +1,1 @@
-[FutPlay](https://fut-play.github.io/)
+[FutNome](https://futnome.github.io/)
