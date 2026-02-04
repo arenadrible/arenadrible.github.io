@@ -1,0 +1,427 @@
+{% include head.html %}
+
+{% include header.html %}
+
+<main class="container mx-auto px-4 py-8">
+  <!-- Breadcrumb -->
+  <div class="breadcrumb mb-8">
+    <div class="text-sm breadcrumbs">
+      <ul>
+        <li><a href="{{ site.baseurl }}/"><i class="fas fa-home mr-1"></i> Início</a></li>
+        <li><a href="{{ site.baseurl }}/blog/">Postagens</a></li>
+        {% if page.categories %}
+          <li><a href="{{ site.baseurl }}/category/{{ page.categories[0] | slugify }}/">{{ page.categories[0] }}</a></li>
+        {% endif %}
+        <li>{{ page.title }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Conteúdo Principal (2/3 da largura) -->
+    <div class="lg:col-span-2">
+      <!-- Cabeçalho da Postagem -->
+      <article class="bg-base-100 rounded-lg shadow-lg overflow-hidden">
+        <div class="p-6 md:p-8">
+          <!-- Categoria e Data -->
+          <div class="flex flex-wrap justify-between items-center mb-6">
+            <div class="flex flex-wrap gap-2">
+              {% for category in page.categories %}
+                <span class="badge badge-primary p-3">{{ category | upcase }}</span>
+              {% endfor %}
+              {% for tag in page.tags limit:2 %}
+                <span class="badge badge-outline p-3">{{ tag }}</span>
+              {% endfor %}
+            </div>
+            <div class="text-gray-500 mt-2 sm:mt-0">
+              <i class="far fa-calendar mr-1"></i> {{ page.date | date: "%d de %B, %Y" }}
+              {% assign words = content | number_of_words %}
+              {% if words < 360 %}
+                <i class="far fa-clock ml-3 mr-1"></i> 1 min de leitura
+              {% else %}
+                <i class="far fa-clock ml-3 mr-1"></i> {{ words | divided_by: 180 }} min de leitura
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Título H1 -->
+          <h1 class="text-3xl md:text-4xl font-bold mb-6">{{ page.title }}</h1>
+
+          <!-- Autor e Compartilhamento -->
+          <div class="flex flex-wrap justify-between items-center mb-8 pb-6 border-b">
+            {% if page.author %}
+            <div class="flex items-center">
+              <div class="avatar mr-4">
+                <div class="w-14 rounded-full bg-gray-300 flex items-center justify-center">
+                  <i class="fas fa-user text-gray-600 text-xl"></i>
+                </div>
+              </div>
+              <div>
+                <div class="font-bold text-lg">{{ page.author }}</div>
+                {% if page.author_role %}
+                  <div class="text-gray-600">{{ page.author_role }}</div>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+            <div class="flex gap-2 mt-4 sm:mt-0">
+              <button class="btn btn-circle btn-outline btn-sm share-facebook">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button class="btn btn-circle btn-outline btn-sm share-twitter">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button class="btn btn-circle btn-outline btn-sm share-whatsapp">
+                <i class="fab fa-whatsapp"></i>
+              </button>
+              <button class="btn btn-circle btn-outline btn-sm share-email">
+                <i class="far fa-envelope"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Imagem de Destaque -->
+          {% if page.image %}
+          <figure class="mb-8">
+            <img src="{{ page.image }}" 
+                 alt="{{ page.image_alt | default: page.title }}" 
+                 class="article-img h-64 md:h-96 w-full object-cover rounded-lg">
+            {% if page.image_caption %}
+              <figcaption class="text-center text-gray-500 mt-2 text-sm">
+                {{ page.image_caption }}
+              </figcaption>
+            {% endif %}
+          </figure>
+          {% endif %}
+
+          <!-- Conteúdo da Postagem -->
+          <div class="post-content prose prose-lg max-w-none">
+            {{ content }}
+          </div>
+
+          <!-- Tags -->
+          {% if page.tags %}
+          <div class="mt-10 pt-6 border-t">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-medium">Tags:</span>
+              {% for tag in page.tags %}
+                <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}/" class="badge badge-outline hover:badge-primary">{{ tag }}</a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+
+          <!-- Compartilhamento final -->
+          <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+            <h4 class="font-bold text-lg mb-4">Gostou desta análise? Compartilhe!</h4>
+            <div class="flex flex-wrap gap-2">
+              <button class="btn btn-outline share-facebook">
+                <i class="fab fa-facebook-f mr-2"></i> Compartilhar no Facebook
+              </button>
+              <button class="btn btn-outline share-twitter">
+                <i class="fab fa-twitter mr-2"></i> Compartilhar no Twitter
+              </button>
+              <button class="btn btn-outline share-whatsapp">
+                <i class="fab fa-whatsapp mr-2"></i> Compartilhar no WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Informações do Autor -->
+        {% if page.author or page.author_bio %}
+        <div class="author-info m-6 md:m-8 mt-0">
+          <div class="flex flex-col sm:flex-row items-center sm:items-start">
+            <div class="avatar mb-4 sm:mb-0 sm:mr-6">
+              <div class="w-20 md:w-24 rounded-full bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-user text-gray-600 text-2xl md:text-3xl"></i>
+              </div>
+            </div>
+            <div class="text-center sm:text-left">
+              <h3 class="text-xl font-bold">{{ page.author | default: "Autor" }}</h3>
+              <p class="text-gray-600 mb-3">{{ page.author_bio | default: "Especialista em futebol e análise tática." }}</p>
+              {% if page.author_social %}
+              <div class="flex justify-center sm:justify-start gap-4">
+                {% if page.author_social.twitter %}
+                  <a href="{{ page.author_social.twitter }}" class="link link-primary" target="_blank">
+                    <i class="fab fa-twitter mr-1"></i> Twitter
+                  </a>
+                {% endif %}
+                {% if page.author_social.linkedin %}
+                  <a href="{{ page.author_social.linkedin }}" class="link link-primary" target="_blank">
+                    <i class="fab fa-linkedin mr-1"></i> LinkedIn
+                  </a>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </article>
+    </div>
+
+    <!-- Barra Lateral Direita (1/3 da largura) -->
+    <div class="space-y-8">
+      <!-- Sobre o Autor -->
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <h2 class="card-title text-xl mb-4 border-b pb-2">
+            <i class="fas fa-user-circle mr-2 text-blue-500"></i>Sobre o Autor
+          </h2>
+          <div class="flex flex-col items-center text-center">
+            <div class="avatar mb-4">
+              <div class="w-20 md:w-24 rounded-full bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-user text-gray-600 text-2xl md:text-3xl"></i>
+              </div>
+            </div>
+            <h3 class="font-bold text-lg">{{ page.author | default: "Arena Drible" }}</h3>
+            <p class="text-gray-600 text-sm mt-2">{{ page.author_bio_short | default: "Análises e notícias do mundo do futebol." }}</p>
+            <div class="mt-4">
+              <a href="{{ site.baseurl }}/autor/{{ page.author | slugify }}/" class="btn btn-outline btn-sm">Ver todos os artigos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Postagens Relacionadas -->
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <h2 class="card-title text-xl mb-4 border-b pb-2">
+            <i class="fas fa-newspaper mr-2 text-red-500"></i>Relacionadas
+          </h2>
+          <div class="space-y-4">
+            {% assign related_posts = site.posts | where_exp:"post", "post.url != page.url" | sample: 3 %}
+            {% for post in related_posts limit:3 %}
+            <a href="{{ post.url | relative_url }}" class="related-post card card-side bg-base-100 shadow-sm hover:shadow-md transition-shadow">
+              <figure class="w-20 flex-shrink-0">
+                {% if post.image %}
+                  <img src="{{ post.image }}" alt="{{ post.title }}" class="h-20 w-full object-cover">
+                {% else %}
+                  <div class="h-20 w-full bg-gray-300 flex items-center justify-center">
+                    <i class="fas fa-futbol text-gray-600"></i>
+                  </div>
+                {% endif %}
+              </figure>
+              <div class="card-body p-4">
+                <h4 class="card-title text-sm font-medium">{{ post.title | truncate: 50 }}</h4>
+                <div class="text-xs text-gray-500">{{ post.date | date: "%d/%m/%Y" }}</div>
+              </div>
+            </a>
+            {% endfor %}
+          </div>
+          <div class="card-actions justify-end mt-4">
+            <a href="{{ site.baseurl }}/blog/" class="btn btn-link btn-sm">Ver mais</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categorias -->
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <h2 class="card-title text-xl mb-4 border-b pb-2">
+            <i class="fas fa-tags mr-2 text-green-500"></i>Categorias
+          </h2>
+          <ul class="space-y-3">
+            {% assign categories = site.categories %}
+            {% for category in categories limit:5 %}
+              <li class="flex justify-between items-center p-2 hover:bg-gray-100 rounded transition-colors">
+                <a href="{{ site.baseurl }}/category/{{ category[0] | slugify }}/" class="flex items-center w-full">
+                  <i class="fas fa-folder text-gray-500 mr-2"></i>
+                  {{ category[0] }}
+                </a>
+                <span class="badge badge-ghost">{{ category[1].size }}</span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="card bg-base-100 shadow-md">
+        <div class="card-body">
+          <h2 class="card-title text-xl mb-4">
+            <i class="fas fa-envelope mr-2 text-purple-500"></i>Newsletter
+          </h2>
+          <p class="text-sm text-gray-600 mb-4">Receba análises como esta diretamente no seu e-mail.</p>
+          <form id="newsletter-form" class="space-y-3">
+            <input type="email" placeholder="Seu e-mail" class="input input-bordered w-full" required>
+            <button type="submit" class="btn btn-primary w-full">Inscrever-se</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include footer.html %}
+
+<!-- CSS específico para posts -->
+<style>
+  .post-content.prose {
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .post-content.prose h2 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: #1e3c72;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .post-content.prose h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #2a5298;
+  }
+
+  .post-content.prose h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #374151;
+  }
+
+  .post-content.prose p {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content.prose ul, 
+  .post-content.prose ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content.prose li {
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content.prose blockquote {
+    border-left: 4px solid #1e3c72;
+    padding-left: 1.5rem;
+    font-style: italic;
+    margin: 2rem 0;
+    color: #4b5563;
+    font-size: 1.25rem;
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  .post-content.prose img {
+    border-radius: 0.5rem;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-content.prose table {
+    width: 100%;
+    margin: 2rem 0;
+    border-collapse: collapse;
+  }
+
+  .post-content.prose th, 
+  .post-content.prose td {
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem;
+    text-align: left;
+  }
+
+  .post-content.prose th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+  }
+
+  .post-content.prose tr:nth-child(even) {
+    background-color: #f9fafb;
+  }
+
+  .author-info {
+    background-color: #f8fafc;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .related-post {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .related-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  .tactic-diagram {
+    background-color: #f0f9ff;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Função para compartilhamento
+    function shareOnPlatform(platform) {
+      const title = document.title;
+      const url = window.location.href;
+      let shareUrl = '';
+
+      switch(platform) {
+        case 'facebook':
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+          break;
+        case 'twitter':
+          shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+          break;
+        case 'whatsapp':
+          shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`;
+          break;
+        case 'email':
+          shareUrl = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent('Confira esta postagem: ' + url)}`;
+          break;
+      }
+
+      if (shareUrl) {
+        window.open(shareUrl, '_blank', 'width=600,height=400');
+      }
+    }
+
+    // Event listeners para botões de compartilhamento
+    document.querySelectorAll('.share-facebook').forEach(button => {
+      button.addEventListener('click', () => shareOnPlatform('facebook'));
+    });
+
+    document.querySelectorAll('.share-twitter').forEach(button => {
+      button.addEventListener('click', () => shareOnPlatform('twitter'));
+    });
+
+    document.querySelectorAll('.share-whatsapp').forEach(button => {
+      button.addEventListener('click', () => shareOnPlatform('whatsapp'));
+    });
+
+    document.querySelectorAll('.share-email').forEach(button => {
+      button.addEventListener('click', () => shareOnPlatform('email'));
+    });
+
+    // Newsletter form
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = this.querySelector('input[type="email"]').value;
+        if (email) {
+          alert(`Obrigado por se inscrever! Você receberá nossas atualizações em: ${email}`);
+          this.reset();
+        }
+      });
+    }
+  });
+</script>

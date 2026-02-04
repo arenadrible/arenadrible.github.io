@@ -1,0 +1,104 @@
+/* Estilos para Markdown gerado pelo Jekyll */
+.markdown-content {
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+.markdown-content h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: #1e3c72;
+}
+
+.markdown-content h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  color: #1e3c72;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.markdown-content h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #2a5298;
+}
+
+.markdown-content p {
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content ul, 
+.markdown-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown-content li {
+  margin-bottom: 0.75rem;
+}
+
+.markdown-content blockquote {
+  border-left: 4px solid #1e3c72;
+  padding-left: 1.5rem;
+  font-style: italic;
+  margin: 2rem 0;
+  color: #4b5563;
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.markdown-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.markdown-content table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+}
+
+.markdown-content th, 
+.markdown-content td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: #f3f4f6;
+  font-weight: bold;
+}
+
+.markdown-content code {
+  background-color: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Courier New', monospace;
+}
+
+.markdown-content pre {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.markdown-content pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
