@@ -12,10 +12,6 @@ categories:
 - noticias
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
-
----
-
 Em janeiro de 1996, o Londrina anunciou um treinador que tinha no currículo várias novelas, filmes e peças de teatro. O escolhido foi o ator Nuno Leal Maia, um dos ícones da TV e que teve no Tubarão mais um capítulo de uma curta e movimentada carreira no futebol.
 
 > – Tinha muita gente que tinha preconceito, claro. Um ator dirigindo o time. Era meio estranho para a cabeça das pessoas entender isso – disse Nuno
