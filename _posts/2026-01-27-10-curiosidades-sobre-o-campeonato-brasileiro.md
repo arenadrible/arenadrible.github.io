@@ -11,7 +11,6 @@ categories:
 - destaque
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
 
 ---
 

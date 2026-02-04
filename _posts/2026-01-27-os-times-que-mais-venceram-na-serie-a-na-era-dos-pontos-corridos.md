@@ -10,7 +10,6 @@ categories:
 - artigos
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
 
 ---
 

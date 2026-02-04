@@ -10,7 +10,6 @@ categories:
 - exclusivo
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
 
 ---
 

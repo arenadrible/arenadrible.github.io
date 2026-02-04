@@ -10,8 +10,6 @@ categories:
 - artigos
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
-
 ---
 
 ## 01. **Só 8 países já foram campeões** da Copa do Mundo masculina desde 1930.

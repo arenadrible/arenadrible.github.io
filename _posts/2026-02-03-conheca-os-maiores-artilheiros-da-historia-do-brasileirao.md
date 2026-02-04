@@ -12,7 +12,6 @@ categories:
 - noticias
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
 
 ---
 

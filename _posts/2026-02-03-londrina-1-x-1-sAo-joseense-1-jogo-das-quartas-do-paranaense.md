@@ -10,7 +10,6 @@ categories:
 - videos
 ---
 
-![{{ page.title }}]({{ page.image }} '{{ page.description }}')
 
 ---
 
